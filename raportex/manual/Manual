@@ -1,0 +1,3 @@
+// User interface:
+1. user wpisuje sciezke do zasobu w postaci stringa (na razie nie ma sprawdzania poprawnosci sciezki)\
+2. user wybiera raport z listy lub wyjscie z systemu (jesli wybor jest zly ->blad i zapytanie od nowa w petli)
