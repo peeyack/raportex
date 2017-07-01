@@ -22,6 +22,7 @@ public class WorkbookConverter {
 		}
 		return dane;
 	}
+	
 
 	public static ArrayList<Record> wezDaneZPliku(String pathname) throws IOException {
 		HSSFWorkbook wb = new HSSFWorkbook(new FileInputStream(pathname));
