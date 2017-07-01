@@ -8,6 +8,8 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello Great World!" );
+    	UserInput ui = new UserInput();
+		ui.readPath("v0.1");
+		int choice = ui.readReportChoice();
     }
 }
