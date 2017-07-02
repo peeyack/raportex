@@ -5,10 +5,16 @@ import java.util.ArrayList;
 
 public class TreeExplorer {
 	ArrayList<String> paths;
+	int fileNumber = 0;
 
 	public TreeExplorer() {
 		paths = new ArrayList<String>();
 	}
+
+	public int getFileNumber() {
+		return fileNumber;
+	}
+
 
 	public ArrayList<String> getPaths() {
 		return paths;
@@ -28,6 +34,7 @@ public class TreeExplorer {
 			} else {
 				if (file.getName().endsWith(".xls")) {
 					paths.add(file.getPath().toString());
+					fileNumber++;
 				}
 			}
 		}
