@@ -24,7 +24,7 @@ public class App
 		
 		System.out.println("Ilość rekordów: " + records.size());
 		System.out.println("Ilość plików: " + te.getPaths().size());
-
+		System.out.println("Ilosc bledow we wczytanych plikach: " + WorkbookConverter.warnings.size());
 
 
 		while (true) {
@@ -40,6 +40,7 @@ public class App
 				for (Raport1Record r : report1List) {
 					System.out.println(r.toCSVReport1String());
 				}
+				saveCsvQueryR1(report1List,ui.getPath().getAbsolutePath());
 				break;
 			case 2:
 				RaportGenerator rap2 = new RaportGenerator();
@@ -47,13 +48,16 @@ public class App
 				for (Raport2Record r : report2List) {
 					System.out.println(r.toCSVReport1String());
 				}
+				saveCsvQueryR2(report2List,ui.getPath().getAbsolutePath());
 				break;
+				
 			case 3:
 				RaportGenerator rap3 = new RaportGenerator();
 				ArrayList<Raport3Record> report3List = rap3.makeRaporThree(records);
 				for (Raport3Record r : report3List) {
 					System.out.println(r.toCSVReport1String());
 				}
+				saveCsvQueryR3(report3List,ui.getPath().getAbsolutePath());
 				break;
 			case 4:
 				for (Record r : records) {
@@ -62,7 +66,17 @@ public class App
 				saveCsvQuery(records, ui.getPath().getAbsolutePath());	
 				
 				break;
-
+			case 5: 
+				for (WorkbookConverterWarning r : WorkbookConverter.warnings ) {
+					System.out.println(r.getText());
+				}
+				if (WorkbookConverter.warnings.size() ==0) {
+					System.out.println("Nie ma bledow w danych, 0 rekordow wyswietlonych \n");
+				}
+						
+				
+				
+				break;
 			case 0:
 				System.out.println("Do zobaczenia!");
 				System.exit(0);
@@ -73,18 +87,80 @@ public class App
 	
 
     }
+    
+    private static void convertToArrayList() {	
+    	
+    }
+    
+    
     private static void saveCsvQuery(ArrayList<Record> input, String path) {
 		String choice = "";
-    	while (!choice.equalsIgnoreCase("t")||!choice.equalsIgnoreCase("n")) {
+		
+    	while (true) {
     	System.out.println("Czy zapisac raport do pliku CSV? (t/n)"); 
 		choice = UserInput.readOneLine();
 		
 			if (choice.equalsIgnoreCase("t")) {
 				ExportCSV.ExportCSVFromRecord(input, (path + "\\daneWejsRap.csv"));
 				System.out.println("Plik zapisany w: \n"+path+"\\daneWejsRap.csv");
+				break;
 			} else if (choice.equalsIgnoreCase("n")) {
-				
+				System.out.println("Plik nie zostal zapisany!");
+				break;
 			} 
 		}
 	}
+    
+    private static void saveCsvQueryR1(ArrayList<Raport1Record> input, String path) {
+		String choice = "";
+    	while (true) {
+    	System.out.println("Czy zapisac raport do pliku CSV? (t/n)"); 
+		choice = UserInput.readOneLine();
+		
+			if (choice.equalsIgnoreCase("t")) {
+				ExportCSV.ExportCSVFromRaport1Record(input, (path + "\\Rap1.csv"));
+				System.out.println("Plik zapisany w: \n"+path+"\\Rap1.csv");
+				break;
+			} else if (choice.equalsIgnoreCase("n")) {
+				System.out.println("Plik nie zostal zapisany!");
+				break;
+			} 
+		}
+	}
+    
+    private static void saveCsvQueryR2(ArrayList<Raport2Record> input, String path) {
+		String choice = "";
+    	while (true) {
+    	System.out.println("Czy zapisac raport do pliku CSV? (t/n)"); 
+		choice = UserInput.readOneLine();
+		
+			if (choice.equalsIgnoreCase("t")) {
+				ExportCSV.ExportCSVFromRaport2Record(input, (path + "\\Rap2.csv"));
+				System.out.println("Plik zapisany w: \n"+path+"\\Rap2.csv");
+				break;
+			} else if (choice.equalsIgnoreCase("n")) {
+				System.out.println("Plik nie zostal zapisany!");
+				break;
+			} 
+		}
+	}
+    
+    private static void saveCsvQueryR3(ArrayList<Raport3Record> input, String path) {
+		String choice = "";
+    	while (true) {
+    	System.out.println("Czy zapisac raport do pliku CSV? (t/n)"); 
+		choice = UserInput.readOneLine();
+		
+			if (choice.equalsIgnoreCase("t")) {
+				ExportCSV.ExportCSVFromRaport3Record(input, (path + "\\Rap3.csv"));
+				System.out.println("Plik zapisany w: \n"+path+"\\Rap3.csv");
+				break;
+			} else if (choice.equalsIgnoreCase("n")) {
+				System.out.println("Plik nie zostal zapisany!");
+				break;
+			} 
+		}
+	}
+    
+ 
 }
