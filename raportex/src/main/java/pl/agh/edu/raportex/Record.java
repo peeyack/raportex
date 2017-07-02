@@ -16,7 +16,7 @@ public class Record {
 	private GregorianCalendar date;
 	
 	public Record(String year, String month, String surnameAndName,
-				String projectName, String task, double time, String src, GregorianCalendar date) {
+				String projectName, String task, double time, String src) {
 		
 		id = count++;
 		this.year = year;
