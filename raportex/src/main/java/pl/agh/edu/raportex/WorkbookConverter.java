@@ -104,17 +104,11 @@ public class WorkbookConverter {
 					if (good) {
 						Record rek = new Record(year, month, sname, projectName, task, thetime, pathname, gc);
 						data.add(rek);
+						recordNumber++;
 					}
 				}
 				else {
 					warnings.add(new WorkbookConverterWarning("puste dane w wierszu "+tekst));
-					GregorianCalendar gc=new GregorianCalendar();
-					gc.setTime(wiersz.getCell(0).getDateCellValue());
-					String task = wiersz.getCell(1).getStringCellValue();
-					double thetime = wiersz.getCell(2).getNumericCellValue();
-					Record rek = new Record(year, month, sname, projectName, task, thetime, pathname,gc);
-					data.add(rek);
-					recordNumber++;
 				}
 			}
 		}
