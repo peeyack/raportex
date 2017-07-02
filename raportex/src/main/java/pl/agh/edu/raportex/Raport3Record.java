@@ -4,21 +4,21 @@ import java.util.GregorianCalendar;
 
 public class Raport3Record {
 	
-	private GregorianCalendar dayOfWeek;
+	private int dayOfWeek;
 	private double time;
 	
-	public Raport3Record(GregorianCalendar dayOfWeek, double time) {
+	public Raport3Record(int dayOfWeek, double time) {
 		this.dayOfWeek = dayOfWeek;
 		this.time = time;
 	}
 
 
-	public GregorianCalendar getDayOfWeek() {
+	public int getDayOfWeek() {
 		return dayOfWeek;
 	}
 
 
-	public void setDayOfWeek(GregorianCalendar dayOfWeek) {
+	public void setDayOfWeek(int dayOfWeek) {
 		this.dayOfWeek = dayOfWeek;
 	}
 
@@ -32,7 +32,7 @@ public class Raport3Record {
 	}
 
 	public String toCSVReport1String() {
-		return dayOfWeek.toInstant().toString()+","+time;
+		return Integer.toString(dayOfWeek)+","+time;
 	}
 	
 
