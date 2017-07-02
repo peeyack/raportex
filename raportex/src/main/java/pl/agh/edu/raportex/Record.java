@@ -30,6 +30,20 @@ public class Record {
 		this.date = date;
 		
 	}
+	public Record(String year, String month, String surnameAndName,
+			String projectName, String task, double time, String src) {
+	
+	id = count++;
+	this.year = year;
+	this.month = month;
+	this.surnameAndName = surnameAndName;
+	this.projectName = projectName;
+	this.task = task;
+	this.time = time;
+	this.src = src;
+	
+	
+}
 
 	public int getId() {
 		return id;
