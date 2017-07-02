@@ -17,37 +17,38 @@ import org.apache.poi.ss.usermodel.Workbook;
 
 
 public class WorkbookConverter {
-	public static ArrayList<Record> wezDaneZPlikow(ArrayList<String> sciezki) throws IOException {
+	public static ArrayList<Record> getRecordsFromManyFiles(ArrayList<String> paths) throws IOException {
 		ArrayList<Record> dane = new ArrayList<Record>();
-		for (String sciezka : sciezki) {
-			dane.addAll(wezDaneZPliku(sciezka));
+		for (String sciezka : paths) {
+			dane.addAll(getRecordsFromOneFile(sciezka));
 		}
 		return dane;
 	}
 	
 
-	public static ArrayList<Record> wezDaneZPliku(String pathname) throws IOException {
+	public static ArrayList<Record> getRecordsFromOneFile(String pathname) throws IOException {
 		HSSFWorkbook wb = new HSSFWorkbook(new FileInputStream(pathname));
-		File f = new File(pathname);
-		File p = new File(f.getAbsoluteFile().getParent());
-		File pp = new File(p.getAbsoluteFile().getParent());
-		String rok = pp.getName();
-		String mies = p.getName();
-		String gosciu = f.getName();
-		ArrayList<Record> dane = new ArrayList<Record>();
+		File file = new File(pathname);
+		File monthDirectory = new File(file.getAbsoluteFile().getParent());
+		File yearDirectory = new File(monthDirectory.getAbsoluteFile().getParent());
+		String year = yearDirectory.getName();
+		String month = monthDirectory.getName();
+		String fileName=file.getName();
+		String sname = fileName.split("//.")[0].split("_")[0]+" "+fileName.split("//.")[0].split("_")[1];
+		ArrayList<Record> data = new ArrayList<Record>();
 		for (int i = 0; i < wb.getNumberOfSheets(); i++) {
-			HSSFSheet arkusz = wb.getSheetAt(i);
-			String nazwaProjektu = arkusz.getSheetName();
-			for (int j = 1; j < arkusz.getPhysicalNumberOfRows(); j++) {
-				HSSFRow wiersz = arkusz.getRow(j);
+			HSSFSheet sheet = wb.getSheetAt(i);
+			String projectName = sheet.getSheetName();
+			for (int j = 1; j < sheet.getPhysicalNumberOfRows(); j++) {
+				HSSFRow wiersz = sheet.getRow(j);
 				if (wiersz.getPhysicalNumberOfCells() > 2) {
 					String task = wiersz.getCell(1).getStringCellValue();
 					double thetime = wiersz.getCell(2).getNumericCellValue();
-					Record rek = new Record(rok, mies, gosciu, nazwaProjektu, task, thetime, pathname);
-					dane.add(rek);
+					Record rek = new Record(year, month, sname, projectName, task, thetime, pathname);
+					data.add(rek);
 				}
 			}
 		}
-		return dane;
+		return data;
 	}
 }
