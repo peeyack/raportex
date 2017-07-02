@@ -1,4 +1,4 @@
-ID,Rok,Miesiac,Nazwisko i Imie,Zadanie,Zrodlo danych wejsciowych, Czas [h]
+ID,Rok,Miesiac,Nazwisko i Imie,Zadanie,Czas [h],Zrodlo danych wejsciowych,Data
 0,2012,01,Kot_Jan,Projekt1,Specyfikacja wymagan niefuncjonalnych dot. technologii,3.0,C:\Users\student\Desktop\MWO\raportex\raportex\src\test\resources\reporter-dane\reporter-dane poprawne\2012\01\Kot_Jan.xls,2012-01-04T23:00:00Z
 1,2012,01,Kot_Jan,Projekt1,Przeglad technologii webowych,2.0,C:\Users\student\Desktop\MWO\raportex\raportex\src\test\resources\reporter-dane\reporter-dane poprawne\2012\01\Kot_Jan.xls,2012-01-11T23:00:00Z
 2,2012,01,Kot_Jan,Projekt1,Implementacja prototypu zapisywania danych,7.0,C:\Users\student\Desktop\MWO\raportex\raportex\src\test\resources\reporter-dane\reporter-dane poprawne\2012\01\Kot_Jan.xls,2012-01-15T23:00:00Z

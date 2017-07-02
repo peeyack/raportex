@@ -24,7 +24,7 @@ public class App
 		
 		System.out.println("Ilość rekordów: " + records.size());
 		System.out.println("Ilość plików: " + te.getPaths().size());
-
+		System.out.println("Ilosc bledow we wczytanych plikach: " + WorkbookConverter.warnings.size());
 
 
 		while (true) {
@@ -62,7 +62,13 @@ public class App
 				saveCsvQuery(records, ui.getPath().getAbsolutePath());	
 				
 				break;
-
+			case 5: 
+				for (WorkbookConverterWarning r : WorkbookConverter.warnings ) {
+					System.out.println(r.getText());
+				}
+						
+				
+				break;
 			case 0:
 				System.out.println("Do zobaczenia!");
 				System.exit(0);
@@ -73,18 +79,28 @@ public class App
 	
 
     }
+    
+    private static void convertToArrayList() {	
+    
+    }
+    
+    
     private static void saveCsvQuery(ArrayList<Record> input, String path) {
 		String choice = "";
-    	while (!choice.equalsIgnoreCase("t")||!choice.equalsIgnoreCase("n")) {
+    	while (true) {
     	System.out.println("Czy zapisac raport do pliku CSV? (t/n)"); 
 		choice = UserInput.readOneLine();
 		
 			if (choice.equalsIgnoreCase("t")) {
 				ExportCSV.ExportCSVFromRecord(input, (path + "\\daneWejsRap.csv"));
 				System.out.println("Plik zapisany w: \n"+path+"\\daneWejsRap.csv");
+				choice = "";
 			} else if (choice.equalsIgnoreCase("n")) {
-				
+				System.out.println("Plik nie zostal zapisany!");
+				break;
 			} 
 		}
 	}
+    
+ 
 }

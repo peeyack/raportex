@@ -32,8 +32,9 @@ public class Raport3Record {
 	}
 
 	public String toCSVReport1String() {
+
 		return Integer.toString(dayOfWeek)+","+time;
+
 	}
-	
 
 }
