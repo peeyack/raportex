@@ -72,6 +72,16 @@ public class Record {
 		this.src = src;
 		this.date = date;
 		
+		for (int i=0;i<task.length();i++){
+			if(task.charAt(i)==(',')){
+				 task= task.substring(0,i)+'_'+task.substring(i+1);
+				
+										
+			}
+			
+			
+		}
+		
 	}
 	public Record(String year, String month, String surnameAndName,
 			String projectName, String task, double time, String src) {
