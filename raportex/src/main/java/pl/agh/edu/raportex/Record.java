@@ -111,6 +111,11 @@ public class Record {
 				+ ", projectName=" + projectName + ", task=" + task + ", time=" + time + ", src=" + src + ", date="
 				+ date.toInstant().toString() + "]";
 	}
+	
+	public String toCSVReport1String() {
+		return id + "," + year + ","  + month + "," + surnameAndName+ "," + projectName + "," + task + "," + time + "," + src + ","
+				+ date.toInstant().toString();
+	}
 
 
 

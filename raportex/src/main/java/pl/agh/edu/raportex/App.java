@@ -4,20 +4,25 @@ import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-/**
- * Hello world!
- *
- */
-public class App {
-	public static void main(String[] args) throws IOException {
+
+
+public class App 
+{
+    public static void main( String[] args ) throws IOException
+    
+    
+    
+    {
 
 		UserInput ui = new UserInput();
 		ui.readPath("2.0");
 		TreeExplorer te = new TreeExplorer();
 		te.treeSearch(ui.getPath().getAbsolutePath());
 		ArrayList<Record> records = WorkbookConverter.getRecordsFromManyFiles(te.getPaths());
+		
 		System.out.println("Ilość rekordów: " + records.size());
 		System.out.println("Ilość plików: " + te.getPaths().size());
+
 
 		while (true) {
 			System.out.println("------------------------------------");
@@ -36,6 +41,7 @@ public class App {
 				for (Record r : records) {
 					System.out.println(r.toLongString());
 				}
+				saveCsvQuery(records, ui.getPath().getAbsolutePath());	
 				
 				break;
 
@@ -45,21 +51,21 @@ public class App {
 				break;
 			}
 		}
+	
+	
+    }
+    private static void saveCsvQuery(ArrayList<Record> input, String path) {
+		String choice = "";
+    	while (!choice.equalsIgnoreCase("t")||choice.equalsIgnoreCase("n")) {
+    	System.out.println("Czy zapisac raport do pliku CSV? (t/n)"); 
+		choice = UserInput.readOneLine();
 		
-		
-
-		/*
-		 * ArrayList<String> list = new ArrayList<>(); list.add("dasfasdfasdfads");
-		 * list.add("afdasdfasdfasdf"); String savePath = "C:\\Test\\dupa.csv";
-		 * ExportCSV exp= new ExportCSV(list,savePath); //Test Do export CSV end
-		 */
-
-		// */
-
-		/*
-		 * //Test treeExplorer TreeExplorer zxc = new TreeExplorer(); zxc.
-		 * treeSearch("C:\\Users\\student\\Desktop\\raportex\\raportex\\src\\test\\resources\\reporter-dane\\reporter-dane poprawne\\2013"
-		 * ); System.out.println(zxc.getFileNumber());
-		 */
+			if (choice.equalsIgnoreCase("t")) {
+				ExportCSV.ExportCSVFromRecord(input, (path + "\\daneWejsRap.csv"));
+				System.out.println("Plik zapisany w: \n"+path+"\\daneWejsRap.csv");
+			} else if (choice.equalsIgnoreCase("n")) {
+			
+		} 
+		}
 	}
 }

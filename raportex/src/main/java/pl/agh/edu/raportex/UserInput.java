@@ -65,7 +65,7 @@ public class UserInput {
 		return output;
 	}
 	
-	public String readOneLine() {
+	public static String readOneLine() {
 		Scanner scanner = new Scanner(System.in);
 		
 		String output  = scanner.nextLine();
