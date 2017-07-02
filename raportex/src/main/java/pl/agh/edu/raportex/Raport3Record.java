@@ -31,7 +31,9 @@ public class Raport3Record {
 		this.time = time;
 	}
 
-	
+	public String toCSVReport1String() {
+		return dayOfWeek.toInstant().toString()+","+time;
+	}
 	
 
 }
