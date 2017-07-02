@@ -94,6 +94,7 @@ public class App
 							break;
 					}
 				break;
+				
 			case 0:
 				System.out.println("Do zobaczenia!");
 				System.exit(0);
