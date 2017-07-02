@@ -60,6 +60,33 @@ public class RaportGenerator {
 
 		return raportOne;
 	}
+	
+	public ArrayList<Raport2Record> makeRaporTwo(ArrayList<Record> list) {
+		ArrayList<Raport2Record> raportOne = new ArrayList<>();
+//petla
+		for (int i = 0; i < list.size(); i++) {
+
+			String project = list.get(i).getProjectName();
+			boolean exists = false;
+			for (int j = 0; j < raportOne.size(); j++) {
+				if (project.equals(raportOne.get(j).getProjectName())) {
+					raportOne.get(j).setTime(raportOne.get(j).getTime() + list.get(i).getTime());
+					exists = true;
+
+				}
+
+			}
+
+			if (!exists) {
+				Raport2Record rekord = new Raport2Record(list.get(i).getProjectName(), list.get(i).getTime());
+				raportOne.add(rekord);
+			}
+
+		}
+
+		return raportOne;
+	}
+	
 	// }
 
 }
