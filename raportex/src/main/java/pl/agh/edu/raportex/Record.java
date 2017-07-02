@@ -1,3 +1,4 @@
+
 package pl.agh.edu.raportex;
 
 import java.util.GregorianCalendar;
@@ -121,3 +122,4 @@ public class Record {
 
 	
 }
+
