@@ -6,6 +6,12 @@ public class RaportGenerator {
 	
 	public static void main(String[] args) {
 		
+		
+		
+//		ArrayList<Record> dataFromWorkbookConventer = new ArrayList<Record>();
+//		dataFromWorkbookConventer = WorkbookConverter.
+		
+		
 		double sum = 0;
 		
 		ArrayList<Record> list = new ArrayList<Record>();
