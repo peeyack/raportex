@@ -26,7 +26,9 @@ public class Raport2Record {
 		this.time = time;
 	}
 
-	
+	public String toCSVReport1String() {
+		return projectName+","+time;
+	}
 	
 
 }

@@ -41,6 +41,11 @@ public class App
 				}
 				break;
 			case 2:
+				RaportGenerator rap2 = new RaportGenerator();
+				ArrayList<Raport2Record> report2List = rap2.makeRaporTwo(records);
+				for (Raport2Record r : report2List) {
+					System.out.println(r.toCSVReport1String());
+				}
 				break;
 			case 3:
 				break;
