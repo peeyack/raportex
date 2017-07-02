@@ -18,9 +18,16 @@ import org.apache.poi.poifs.filesystem.DirectoryNode;
 import org.apache.poi.ss.usermodel.Workbook;
 
 public class WorkbookConverter {
+
 	public static ArrayList<WorkbookConverterWarning> warnings = new ArrayList<WorkbookConverterWarning>();
 
 	
+	static int recordNumber = 0;
+	
+	public static int getRecordNumber() {
+		return recordNumber;
+	}
+
 	public static ArrayList<Record> getRecordsFromTree(String path) throws IOException {
 		TreeExplorer treeExplorer = new TreeExplorer();
 		treeExplorer.treeSearch(path);
@@ -28,7 +35,7 @@ public class WorkbookConverter {
 	}
 
 	public static ArrayList<Record> getRecordsFromManyFiles(ArrayList<String> paths) throws IOException {
-		ArrayList<Record> dane = new ArrayList<Record>();
+		ArrayList<Record> dane = new ArrayList<Record>(); //wszystkie rekordy
 		for (String sciezka : paths) {
 			dane.addAll(getRecordsFromOneFile(sciezka));
 		}
@@ -37,7 +44,8 @@ public class WorkbookConverter {
 		if (dane.size()!=listDeletedDuplicates.size()) warnings.add(new WorkbookConverterWarning("duplikaty w danych w ilości "+(dane.size()-listDeletedDuplicates.size())));
 		return listDeletedDuplicates;
 	}
-
+	
+	
 	public static ArrayList<Record> getRecordsFromOneFile(String pathname) throws IOException {
 		HSSFWorkbook wb = new HSSFWorkbook(new FileInputStream(pathname));
 		File file = new File(pathname);
@@ -100,6 +108,13 @@ public class WorkbookConverter {
 				}
 				else {
 					warnings.add(new WorkbookConverterWarning("puste dane w wierszu "+tekst));
+					GregorianCalendar gc=new GregorianCalendar();
+					gc.setTime(wiersz.getCell(0).getDateCellValue());
+					String task = wiersz.getCell(1).getStringCellValue();
+					double thetime = wiersz.getCell(2).getNumericCellValue();
+					Record rek = new Record(year, month, sname, projectName, task, thetime, pathname,gc);
+					data.add(rek);
+					recordNumber++;
 				}
 			}
 		}

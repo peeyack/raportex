@@ -1,3 +1,4 @@
+
 package pl.agh.edu.raportex;
 
 import java.util.GregorianCalendar;
@@ -72,6 +73,20 @@ public class Record {
 		this.date = date;
 		
 	}
+	public Record(String year, String month, String surnameAndName,
+			String projectName, String task, double time, String src) {
+	
+	id = count++;
+	this.year = year;
+	this.month = month;
+	this.surnameAndName = surnameAndName;
+	this.projectName = projectName;
+	this.task = task;
+	this.time = time;
+	this.src = src;
+	
+	
+}
 
 	public int getId() {
 		return id;
@@ -148,14 +163,20 @@ public class Record {
 		this.date = date;
 	}
 
-	@Override
-	public String toString() {
+	
+	public String toLongString() {
 		return "Record [id=" + id + ", year=" + year + ", month=" + month + ", surnameAndName=" + surnameAndName
 				+ ", projectName=" + projectName + ", task=" + task + ", time=" + time + ", src=" + src + ", date="
-				+ date + "]";
+				+ date.toInstant().toString() + "]";
+	}
+	
+	public String toCSVReport1String() {
+		return id + "," + year + ","  + month + "," + surnameAndName+ "," + projectName + "," + task + "," + time + "," + src + ","
+				+ date.toInstant().toString();
 	}
 
 
 
 	
 }
+

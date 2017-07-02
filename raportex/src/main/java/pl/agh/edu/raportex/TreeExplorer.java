@@ -25,9 +25,15 @@ public class TreeExplorer {
 	}
 
 	public void treeSearch(String path) {
+		
 		File root = new File(path);
 		File[] list = root.listFiles();
-
+		
+		if (path.endsWith(".xls")) {
+			paths.add(path);
+			return;
+		}
+		
 		if (list == null)
 			return;
 
