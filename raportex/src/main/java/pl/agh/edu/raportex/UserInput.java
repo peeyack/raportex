@@ -46,6 +46,7 @@ public class UserInput {
 				+ "3. Raport ilosci godzin przepracowanych w poszczegolnych dniach tygodnia \n"
 				+ "4. Wyswietlenie danych wejsciowych \n"
 				+ "5. Wypisz bledne rekordy \n"
+				+ "6. Filtrowanie \n"
 				+ "0. Zamknij \n");
 	}
 	

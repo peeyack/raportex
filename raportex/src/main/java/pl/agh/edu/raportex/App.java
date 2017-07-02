@@ -25,7 +25,8 @@ public class App
 		System.out.println("Ilość rekordów: " + records.size());
 		System.out.println("Ilość plików: " + te.getPaths().size());
 		System.out.println("Ilosc bledow we wczytanych plikach: " + WorkbookConverter.warnings.size());
-
+		
+		
 
 		while (true) {
 			System.out.println("------------------------------------");
@@ -73,9 +74,25 @@ public class App
 				if (WorkbookConverter.warnings.size() ==0) {
 					System.out.println("Nie ma bledow w danych, 0 rekordow wyswietlonych \n");
 				}
-						
+				break;	
+			case 6:
+				System.out.println("Wybierz filtr: \n "
+						+ "1. filtr po nazwisku \n"
+						+ "2. filtr po projekcie");
+				String wybor = UserInput.readOneLine();
 				
-				
+					switch (wybor) {
+						case "1" :
+							System.out.println("wpisz imie i nazwisko");
+							FilterInputData data1 = new FilterInputData(records);
+							records = data1.filterBySurnameAndName(UserInput.readOneLine());
+							break;
+						case "2" :
+							System.out.println("wpisz nazwe projektu");
+							FilterInputData data2 = new FilterInputData(records);
+							records = data2.filterByProjekt(UserInput.readOneLine());
+							break;
+					}
 				break;
 			case 0:
 				System.out.println("Do zobaczenia!");
@@ -88,9 +105,6 @@ public class App
 
     }
     
-    private static void convertToArrayList() {	
-    	
-    }
     
     
     private static void saveCsvQuery(ArrayList<Record> input, String path) {
