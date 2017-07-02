@@ -41,6 +41,8 @@ public class ExportCSV {
 		try {
 			fw = new FileWriter(new File(savePath));
 			BufferedWriter bf  = new BufferedWriter(fw);
+			String header = "ID,Rok,Miesiac,Nazwisko i Imie,Zadanie,Zrodlo danych wejsciowych, Czas [h]" + System.lineSeparator();
+			bf.write(header);
 			for (Record s: input) {
 				bf.write(s.toCSVReport1String()+ System.lineSeparator());
 			}
