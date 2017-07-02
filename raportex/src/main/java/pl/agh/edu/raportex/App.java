@@ -32,6 +32,8 @@ public class App
 			}
 			switch (choice) {
 			case 1:
+				RaportGenerator rap1 = new RaportGenerator();
+				ArrayList<Raport1Record> adasd = rap1.makeRaportOne(records);
 				break;
 			case 2:
 				break;
