@@ -1,5 +1,6 @@
 package pl.agh.edu.raportex;
 import java.io.File;
+import java.nio.file.Path;
 import java.util.Scanner;
 
 public class UserInput {
@@ -26,7 +27,7 @@ public class UserInput {
 				System.out.println("----------------------- \n" + "Sciezka zaakceptowana \n");
 				loadStatus = true;
 			} else {
-				System.out.println("Bledna sciezka, sproboj jeszcze raz!");
+				System.out.println("Bledna sciezka, sprobuj jeszcze raz!");
 			}
 		}
 		return loadStatus;
