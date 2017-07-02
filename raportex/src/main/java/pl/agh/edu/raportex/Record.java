@@ -105,11 +105,11 @@ public class Record {
 		this.date = date;
 	}
 
-	@Override
-	public String toString() {
+	
+	public String toLongString() {
 		return "Record [id=" + id + ", year=" + year + ", month=" + month + ", surnameAndName=" + surnameAndName
 				+ ", projectName=" + projectName + ", task=" + task + ", time=" + time + ", src=" + src + ", date="
-				+ date + "]";
+				+ date.toInstant().toString() + "]";
 	}
 
 
