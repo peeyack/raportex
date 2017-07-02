@@ -35,7 +35,7 @@ public class WorkbookConverter {
 		for (String sciezka : paths) {
 			dane.addAll(getRecordsFromOneFile(sciezka));
 		}
-		return dane;
+		return dane; //całość danych do analizy
 	}
 	
 
