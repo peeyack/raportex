@@ -17,9 +17,9 @@ public class RaportGenerator {
 		ArrayList<Record> list = new ArrayList<Record>();
 		
 		//dodajemy klientów
-		list.add(new Record("2017", "07", "Nowak_Jan", "projek1", "wykopanie rowu", 13, "C:/Users/student/workspace"));
-		list.add(new Record("2017", "06", "Nowak_Jan", "projek2", "zasypanie rowu", 8, "C:/Users/student/workspace2"));
-		list.add(new Record("2017", "05", "Kowalski_Piotr", "projek1", "wyrzucenie śmieci", 7.5, "C:/Users/student/workspace4"));
+	//	list.add(new Record("2017", "07", "Nowak_Jan", "projek1", "wykopanie rowu", 13, "C:/Users/student/workspace"));
+	//	list.add(new Record("2017", "06", "Nowak_Jan", "projek2", "zasypanie rowu", 8, "C:/Users/student/workspace2"));
+	//	list.add(new Record("2017", "05", "Kowalski_Piotr", "projek1", "wyrzucenie śmieci", 7.5, "C:/Users/student/workspace4"));
 		
 		//Record r1 = new Record("2017", "04", "", projectName, task, time, src)
 		

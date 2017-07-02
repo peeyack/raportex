@@ -1,5 +1,6 @@
 package pl.agh.edu.raportex;
 
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -9,11 +10,12 @@ import java.util.ArrayList;
  */
 public class App 
 {
-    public static void main( String[] args )
+    public static void main( String[] args ) throws IOException
     {
-  		
- 
-/*    	//TEST DO EXPORT CSV
+
+  	 	
+ * 	//TEST DO EXPORT CSV
+
     	ArrayList<String> list = new ArrayList<>();
 		list.add("dasfasdfasdfads");
 		list.add("afdasdfasdfasdf");
