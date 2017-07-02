@@ -20,5 +20,6 @@ public class FilterRaport1Record {
 		}
 		return filteredData;
 	}
+	
 
 }
