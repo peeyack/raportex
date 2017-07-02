@@ -14,18 +14,17 @@ public class App
 
 
        
- 
-/*    	//TEST DO EXPORT CSV
+ /*    	//TEST DO EXPORT CSV
     	ArrayList<String> list = new ArrayList<>();
 		list.add("dasfasdfasdfads");
 		list.add("afdasdfasdfasdf");
 		String savePath = "C:\\Test\\dupa.csv";
 		ExportCSV exp= new ExportCSV(list,savePath);
     	//Test Do export CSV end
-    	
+   */ 	
     	UserInput ui = new UserInput();
 		ui.readPath("v0.1");
-		int choice = ui.readReportChoice();*/
+		//int choice = ui.readReportChoice();*/
 		
     }
 }
