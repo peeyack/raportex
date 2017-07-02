@@ -56,6 +56,8 @@ public class WorkbookConverter {
 		String fileName = file.getName();
 		String sname = fileName.split("\\.")[0];
 		ArrayList<Record> data = new ArrayList<Record>();
+		int numberOfRecordsInFile=0;
+		int numberOfDateNotMatchFolder=0;
 		for (int i = 0; i < wb.getNumberOfSheets(); i++) {
 			HSSFSheet sheet = wb.getSheetAt(i);
 			String projectName = sheet.getSheetName();
@@ -73,6 +75,7 @@ public class WorkbookConverter {
 					}
 					if (gc.get(Calendar.MONTH)+1!=Integer.parseInt(month) || gc.get(Calendar.YEAR)!=Integer.parseInt(year)) {
 						warnings.add(new WorkbookConverterWarning("data nie zgadza się z folderem "+tekst));
+						numberOfDateNotMatchFolder++;
 					}
 					String task="";
 					try {
@@ -105,6 +108,7 @@ public class WorkbookConverter {
 						Record rek = new Record(year, month, sname, projectName, task, thetime, pathname, gc);
 						data.add(rek);
 						recordNumber++;
+						numberOfRecordsInFile++;
 					}
 				}
 				else {
@@ -112,6 +116,7 @@ public class WorkbookConverter {
 				}
 			}
 		}
+		if (numberOfRecordsInFile==numberOfDateNotMatchFolder) warnings.add(new WorkbookConverterWarning("w całym pliku "+fileName+" w roku "+year+" w miesiącu "+month+" daty nie zgadzają się z folderem"));
 		return data;
 	}
 }
