@@ -37,7 +37,7 @@ public class RaportGenerator {
 	//
 	public ArrayList<Raport1Record> makeRaportOne(ArrayList<Record> list) {
 		ArrayList<Raport1Record> raportOne = new ArrayList<>();
-
+//petla
 		for (int i = 0; i < list.size(); i++) {
 
 			String surname = list.get(i).getSurnameAndName();
