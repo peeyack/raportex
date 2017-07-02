@@ -38,17 +38,5 @@ public class Raport3Record {
 	)+","+time;
 	}
 		
-	private String getDay(GregorianCalendar date) {
-		switch (date.get(GregorianCalendar.DAY_OF_WEEK)) {
-			case 1: return "Poniedzialek";
-			case 2: return "Wtorek";
-			case 3: return "Sroda";
-			case 4: return "Czwartek";
-			case 5: return "Piatek";
-			case 6: return "Sobota";
-			case 7: return "Niedziela";
-			default: return "Nieznane";
-		}
-	}
 
 }
