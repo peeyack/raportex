@@ -8,10 +8,11 @@ import java.util.ArrayList;
 
 public class App 
 {
-    public static void main( String[] args ) throws IOException
+
+    public static void main( String[] args ) throws InterruptedException, IOException
+ 
     
-    
-    
+
     {
 
 		UserInput ui = new UserInput();
@@ -22,6 +23,7 @@ public class App
 		
 		System.out.println("Ilość rekordów: " + records.size());
 		System.out.println("Ilość plików: " + te.getPaths().size());
+
 
 
 		while (true) {
@@ -55,6 +57,7 @@ public class App
 		}
 	
 	
+
     }
     private static void saveCsvQuery(ArrayList<Record> input, String path) {
 		String choice = "";
