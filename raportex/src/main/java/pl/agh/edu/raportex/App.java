@@ -12,9 +12,6 @@ public class App
     public static void main( String[] args )
     {
   		
-
-
-       
  
 /*    	//TEST DO EXPORT CSV
     	ArrayList<String> list = new ArrayList<>();
@@ -30,8 +27,7 @@ public class App
 		
     	
     	//Test treeExplorer
-    	TreeExplorer zxc = new TreeExplorer();
-    	zxc.treeSearch("C:\\Users\\student\\Desktop\\raportex\\raportex\\src\\test\\resources\\reporter-dane\\reporter-dane poprawne\\2013");
-    	System.out.println(zxc.getFileNumber());
+
+
     }
 }

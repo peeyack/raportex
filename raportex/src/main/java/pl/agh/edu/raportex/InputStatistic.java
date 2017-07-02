@@ -1,8 +1,11 @@
 package pl.agh.edu.raportex;
 
 public class InputStatistic {
-	int fileCounter = 0;
-	int recordCounter = 0;
+	int fileNumber = 0;
+	int recordNumber = 0;
 	
+	public InputStatistic(TreeExplorer explore) {
+		this.fileNumber = explore.getFileNumber();
+	}
 	
 }
