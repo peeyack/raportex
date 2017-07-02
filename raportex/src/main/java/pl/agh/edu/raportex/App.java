@@ -35,7 +35,10 @@ public class App
 			switch (choice) {
 			case 1:
 				RaportGenerator rap1 = new RaportGenerator();
-				ArrayList<Raport1Record> adasd = rap1.makeRaportOne(records);
+				ArrayList<Raport1Record> report1List = rap1.makeRaportOne(records);
+				for (Raport1Record r : report1List) {
+					System.out.println(r.toCSVReport1String());
+				}
 				break;
 			case 2:
 				break;
