@@ -1,4 +1,7 @@
+
 package pl.agh.edu.raportex;
+
+import java.util.GregorianCalendar;
 
 public class Record {
 	
@@ -11,9 +14,10 @@ public class Record {
 	private String task;
 	private double time;
 	private String src;
+	private GregorianCalendar date;
 	
 	public Record(String year, String month, String surnameAndName,
-				String projectName, String task, double time, String src) {
+				String projectName, String task, double time, String src, GregorianCalendar date) {
 		
 		id = count++;
 		this.year = year;
@@ -23,6 +27,7 @@ public class Record {
 		this.task = task;
 		this.time = time;
 		this.src = src;
+		this.date = date;
 		
 	}
 
@@ -91,4 +96,30 @@ public class Record {
 		this.src = src;
 	}
 	
+	
+
+	public GregorianCalendar getDate() {
+		return date;
+	}
+
+	public void setDate(GregorianCalendar date) {
+		this.date = date;
+	}
+
+	
+	public String toLongString() {
+		return "Record [id=" + id + ", year=" + year + ", month=" + month + ", surnameAndName=" + surnameAndName
+				+ ", projectName=" + projectName + ", task=" + task + ", time=" + time + ", src=" + src + ", date="
+				+ date.toInstant().toString() + "]";
+	}
+	
+	public String toCSVReport1String() {
+		return id + "," + year + ","  + month + "," + surnameAndName+ "," + projectName + "," + task + "," + time + "," + src + ","
+				+ date.toInstant().toString();
+	}
+
+
+
+	
 }
+
