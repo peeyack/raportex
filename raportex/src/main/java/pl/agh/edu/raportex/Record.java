@@ -3,7 +3,7 @@ package pl.agh.edu.raportex;
 import java.util.GregorianCalendar;
 
 public class Record {
-	
+
 	private static int count = 0;
 	private int id;
 	private String year;
@@ -14,10 +14,10 @@ public class Record {
 	private double time;
 	private String src;
 	private GregorianCalendar date;
-	
-	public Record(String year, String month, String surnameAndName,
-				String projectName, String task, double time, String src) {
-		
+
+	public Record(String year, String month, String surnameAndName, String projectName, String task, double time,
+			String src, GregorianCalendar date) {
+
 		id = count++;
 		this.year = year;
 		this.month = month;
@@ -26,8 +26,15 @@ public class Record {
 		this.task = task;
 		this.time = time;
 		this.src = src;
-		date = new GregorianCalendar();
-		
+		this.date = date;
+
+	}
+
+	public Record(String year, String month, String surnameAndName, String projectName, String task, double time,
+			String src) {
+
+		this(year, month, surnameAndName, projectName, task, time, src, new GregorianCalendar());
+
 	}
 
 	public int getId() {
@@ -53,7 +60,6 @@ public class Record {
 	public void setMonth(String month) {
 		this.month = month;
 	}
-
 
 	public String getSurnameAndName() {
 		return surnameAndName;
@@ -94,8 +100,6 @@ public class Record {
 	public void setSrc(String src) {
 		this.src = src;
 	}
-	
-	
 
 	public GregorianCalendar getDate() {
 		return date;
@@ -112,7 +116,4 @@ public class Record {
 				+ date + "]";
 	}
 
-
-
-	
 }
