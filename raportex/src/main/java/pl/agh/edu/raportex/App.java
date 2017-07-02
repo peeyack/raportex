@@ -66,7 +66,8 @@ public class App
 				for (WorkbookConverterWarning r : WorkbookConverter.warnings ) {
 					System.out.println(r.getText());
 				}
-							
+						
+				
 				break;
 			case 0:
 				System.out.println("Do zobaczenia!");
