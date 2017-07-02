@@ -57,5 +57,73 @@ public class ExportCSV {
 		
 	}
 	
+	public static void ExportCSVFromRaport1Record(ArrayList<Raport1Record> input, String savePath) {
+		
+		
+		FileWriter fw;
+		try {
+			fw = new FileWriter(new File(savePath));
+			BufferedWriter bf  = new BufferedWriter(fw);
+			String header = "Nazwisko i imie, ilosc godzin" + System.lineSeparator();
+			bf.write(header);
+			for (Raport1Record s: input) {
+				bf.write(s.toCSVReport1String()+ System.lineSeparator());
+			}
+			bf.close();
+			fw.close();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
+public static void ExportCSVFromRaport2Record(ArrayList<Raport2Record> input, String savePath) {
+		
+		
+		FileWriter fw;
+		try {
+			fw = new FileWriter(new File(savePath));
+			BufferedWriter bf  = new BufferedWriter(fw);
+			String header = "Nazwa projektu, ilosc godzin" + System.lineSeparator();
+			bf.write(header);
+			for (Raport2Record s: input) {
+				bf.write(s.toCSVReport1String()+ System.lineSeparator());
+			}
+			bf.close();
+			fw.close();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+public static void ExportCSVFromRaport3Record(ArrayList<Raport3Record> input, String savePath) {
+	
+	
+	FileWriter fw;
+	try {
+		fw = new FileWriter(new File(savePath));
+		BufferedWriter bf  = new BufferedWriter(fw);
+		String header = "Data i dzien tygodnia, ilosc godzin" + System.lineSeparator();
+		bf.write(header);
+		for (Raport3Record s: input) {
+			bf.write(s.toCSVReport1String()+ System.lineSeparator());
+		}
+		bf.close();
+		fw.close();
+		
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+	
+}
 	
 }
