@@ -1,6 +1,7 @@
 package pl.agh.edu.raportex;//wersja supertestowa
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class RaportGenerator {
@@ -93,10 +94,10 @@ public class RaportGenerator {
 //petla
 		for (int i = 0; i < list.size(); i++) {
 
-			GregorianCalendar DayOfTheWeek = list.get(i).getDate();
+			Integer DayOfTheWeek = list.get(i).getDate().get(Calendar.DAY_OF_WEEK);
 			boolean exists = false;
 			for (int j = 0; j < raportThree.size(); j++) {
-				if (DayOfTheWeek.equals(raportThree.get(j).getDayOfWeek())) {
+				if (DayOfTheWeek==raportThree.get(j).getDayOfWeek()) {
 					raportThree.get(j).setTime(raportThree.get(j).getTime() + list.get(i).getTime());
 					exists = true;
 
@@ -105,7 +106,7 @@ public class RaportGenerator {
 			}
 
 			if (!exists) {
-				Raport3Record rekord = new Raport3Record(list.get(i).getDate(), list.get(i).getTime());
+				Raport3Record rekord = new Raport3Record(list.get(i).getDate().get(Calendar.DAY_OF_WEEK), list.get(i).getTime());
 				raportThree.add(rekord);
 			}
 
