@@ -17,6 +17,12 @@ import org.apache.poi.ss.usermodel.Workbook;
 
 
 public class WorkbookConverter {
+	public static ArrayList<Record> getRecordsFromTree(String path) throws IOException {
+		TreeExplorer treeExplorer=new TreeExplorer();
+		treeExplorer.treeSearch(path);
+		return getRecordsFromManyFiles(treeExplorer.getPaths());
+	}
+	
 	public static ArrayList<Record> getRecordsFromManyFiles(ArrayList<String> paths) throws IOException {
 		ArrayList<Record> dane = new ArrayList<Record>();
 		for (String sciezka : paths) {
