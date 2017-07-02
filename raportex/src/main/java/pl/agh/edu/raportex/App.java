@@ -73,6 +73,12 @@ public class App
 	
 
     }
+    
+    private static void convertToArrayList() {	
+    
+    }
+    
+    
     private static void saveCsvQuery(ArrayList<Record> input, String path) {
 		String choice = "";
     	while (true) {
