@@ -26,7 +26,7 @@ public class Record {
 		this.task = task;
 		this.time = time;
 		this.src = src;
-		date = new GregorianCalendar();
+		this.date = date;
 		
 	}
 

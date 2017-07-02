@@ -1,5 +1,6 @@
 package pl.agh.edu.raportex;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -8,14 +9,20 @@ import java.util.ArrayList;
  */
 public class App 
 {
-    public static void main( String[] args )
+    public static void main( String[] args ) throws IOException
     {
-  		
-
-
-       
- 
-/*    	//TEST DO EXPORT CSV
+    	UserInput ui=new UserInput();
+    	ui.readPath("2.0");
+    	TreeExplorer te=new TreeExplorer();
+    	te.treeSearch(ui.getPath());
+    	ArrayList<Record> records=WorkbookConverter.getRecordsFromManyFiles(te.getPaths());
+    	System.out.println("Ilość rekordów: "+records.size());
+    	System.out.println("Ilość plików: "+te.getPaths().size());
+    	for (Record r:records) {
+    		System.out.println(r);
+    	}
+/*    	
+ * 	//TEST DO EXPORT CSV
     	ArrayList<String> list = new ArrayList<>();
 		list.add("dasfasdfasdfads");
 		list.add("afdasdfasdfasdf");
