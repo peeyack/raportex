@@ -1,3 +1,4 @@
+
 package pl.agh.edu.raportex;
 
 import java.io.File;
@@ -7,8 +8,11 @@ public class TreeExplorer {
 	ArrayList<String> paths;
 	int fileNumber = 0;
 
+	ArrayList<String> employeeNames;
+	
 	public TreeExplorer() {
 		paths = new ArrayList<String>();
+		employeeNames = new ArrayList<String>();
 	}
 
 	public int getFileNumber() {
@@ -35,6 +39,7 @@ public class TreeExplorer {
 				if (file.getName().endsWith(".xls")) {
 					paths.add(file.getPath().toString());
 					fileNumber++;
+					employeeNames.add(file.getName().toString());
 				}
 			}
 		}
