@@ -1,5 +1,6 @@
 package pl.agh.edu.raportex;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -26,5 +27,10 @@ public class App
 		ui.readPath("v0.1");
 		//int choice = ui.readReportChoice();*/
 		
+    	
+    	//Test treeExplorer
+    	TreeExplorer zxc = new TreeExplorer();
+    	zxc.treeSearch("C:\\Users\\student\\Desktop\\raportex\\raportex\\src\\test\\resources\\reporter-dane\\reporter-dane poprawne\\2013");
+    	System.out.println(zxc.getFileNumber());
     }
 }
