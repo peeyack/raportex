@@ -57,6 +57,7 @@ public class App
 				for (Raport3Record r : report3List) {
 					System.out.println(r.toCSVReport1String());
 				}
+				saveCsvQueryR3(report3List,ui.getPath().getAbsolutePath());
 				break;
 			case 4:
 				for (Record r : records) {
@@ -68,6 +69,9 @@ public class App
 			case 5: 
 				for (WorkbookConverterWarning r : WorkbookConverter.warnings ) {
 					System.out.println(r.getText());
+				}
+				if (WorkbookConverter.warnings.size() ==0) {
+					System.out.println("Nie ma bledow w danych, 0 rekordow wyswietlonych \n");
 				}
 						
 				
@@ -132,6 +136,23 @@ public class App
 			if (choice.equalsIgnoreCase("t")) {
 				ExportCSV.ExportCSVFromRaport2Record(input, (path + "\\Rap2.csv"));
 				System.out.println("Plik zapisany w: \n"+path+"\\Rap2.csv");
+				break;
+			} else if (choice.equalsIgnoreCase("n")) {
+				System.out.println("Plik nie zostal zapisany!");
+				break;
+			} 
+		}
+	}
+    
+    private static void saveCsvQueryR3(ArrayList<Raport3Record> input, String path) {
+		String choice = "";
+    	while (true) {
+    	System.out.println("Czy zapisac raport do pliku CSV? (t/n)"); 
+		choice = UserInput.readOneLine();
+		
+			if (choice.equalsIgnoreCase("t")) {
+				ExportCSV.ExportCSVFromRaport3Record(input, (path + "\\Rap3.csv"));
+				System.out.println("Plik zapisany w: \n"+path+"\\Rap3.csv");
 				break;
 			} else if (choice.equalsIgnoreCase("n")) {
 				System.out.println("Plik nie zostal zapisany!");

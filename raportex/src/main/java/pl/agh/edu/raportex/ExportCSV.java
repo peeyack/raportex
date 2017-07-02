@@ -102,5 +102,28 @@ public static void ExportCSVFromRaport2Record(ArrayList<Raport2Record> input, St
 		
 		
 	}
+
+public static void ExportCSVFromRaport3Record(ArrayList<Raport3Record> input, String savePath) {
+	
+	
+	FileWriter fw;
+	try {
+		fw = new FileWriter(new File(savePath));
+		BufferedWriter bf  = new BufferedWriter(fw);
+		String header = "Data i dzien tygodnia, ilosc godzin" + System.lineSeparator();
+		bf.write(header);
+		for (Raport3Record s: input) {
+			bf.write(s.toCSVReport1String()+ System.lineSeparator());
+		}
+		bf.close();
+		fw.close();
+		
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+	
+}
 	
 }
