@@ -74,7 +74,7 @@ public class App
     }
     private static void saveCsvQuery(ArrayList<Record> input, String path) {
 		String choice = "";
-    	while (!choice.equalsIgnoreCase("t")||!choice.equalsIgnoreCase("n")) {
+    	while (true) {
     	System.out.println("Czy zapisac raport do pliku CSV? (t/n)"); 
 		choice = UserInput.readOneLine();
 		
@@ -82,7 +82,8 @@ public class App
 				ExportCSV.ExportCSVFromRecord(input, (path + "\\daneWejsRap.csv"));
 				System.out.println("Plik zapisany w: \n"+path+"\\daneWejsRap.csv");
 			} else if (choice.equalsIgnoreCase("n")) {
-				
+				System.out.println("Plik nie zostal zapisany!");
+				break;
 			} 
 		}
 	}
