@@ -105,7 +105,7 @@ public class RaportGenerator {
 			}
 
 			if (!exists) {
-				Raport3Record rekord = new Raport3Record(list.get(i).getProjectName(), list.get(i).getTime());
+				Raport3Record rekord = new Raport3Record(list.get(i).getDate(), list.get(i).getTime());
 				raportThree.add(rekord);
 			}
 
