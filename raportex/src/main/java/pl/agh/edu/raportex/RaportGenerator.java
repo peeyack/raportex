@@ -1,6 +1,7 @@
 package pl.agh.edu.raportex;//wersja supertestowa
 
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 
 public class RaportGenerator {
 
@@ -62,15 +63,15 @@ public class RaportGenerator {
 	}
 	
 	public ArrayList<Raport2Record> makeRaporTwo(ArrayList<Record> list) {
-		ArrayList<Raport2Record> raportOne = new ArrayList<>();
+		ArrayList<Raport2Record> raportTwo = new ArrayList<>();
 //petla
 		for (int i = 0; i < list.size(); i++) {
 
 			String project = list.get(i).getProjectName();
 			boolean exists = false;
-			for (int j = 0; j < raportOne.size(); j++) {
-				if (project.equals(raportOne.get(j).getProjectName())) {
-					raportOne.get(j).setTime(raportOne.get(j).getTime() + list.get(i).getTime());
+			for (int j = 0; j < raportTwo.size(); j++) {
+				if (project.equals(raportTwo.get(j).getProjectName())) {
+					raportTwo.get(j).setTime(raportTwo.get(j).getTime() + list.get(i).getTime());
 					exists = true;
 
 				}
@@ -79,15 +80,40 @@ public class RaportGenerator {
 
 			if (!exists) {
 				Raport2Record rekord = new Raport2Record(list.get(i).getProjectName(), list.get(i).getTime());
-				raportOne.add(rekord);
+				raportTwo.add(rekord);
 			}
 
 		}
 
-		return raportOne;
+		return raportTwo;
 	}
 	
-	// }
+	public ArrayList<Raport3Record> makeRaporThree(ArrayList<Record> list) {
+		ArrayList<Raport3Record> raportThree = new ArrayList<>();
+//petla
+		for (int i = 0; i < list.size(); i++) {
+
+			GregorianCalendar DayOfTheWeek = list.get(i).getDate();
+			boolean exists = false;
+			for (int j = 0; j < raportThree.size(); j++) {
+				if (DayOfTheWeek.equals(raportThree.get(j).getDayOfWeek())) {
+					raportThree.get(j).setTime(raportThree.get(j).getTime() + list.get(i).getTime());
+					exists = true;
+
+				}
+
+			}
+
+			if (!exists) {
+				Raport3Record rekord = new Raport3Record(list.get(i).getProjectName(), list.get(i).getTime());
+				raportThree.add(rekord);
+			}
+
+		}
+
+		return raportThree;
+	}
+	
 
 }
 
