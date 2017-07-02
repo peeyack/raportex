@@ -50,6 +50,7 @@ public class App
 				}
 				saveCsvQueryR2(report2List,ui.getPath().getAbsolutePath());
 				break;
+				
 			case 3:
 				RaportGenerator rap3 = new RaportGenerator();
 				ArrayList<Raport3Record> report3List = rap3.makeRaporThree(records);
